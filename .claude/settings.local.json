@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(python -c \"import tiktoken\")",
-      "Bash(python _count.py)"
+      "Bash(python _count.py)",
+      "Bash(python label_jsonl.py)"
     ]
   }
 }
