@@ -51,6 +51,8 @@ This repo holds `.jsonl` training data files for the HAVOC Training Syllabus —
 
 ### Stub Files (0 entries — not yet started)
 
+All 55 topic files now exist. Files with no entries yet:
+
 | File | Syllabus Topic |
 |---|---|
 | `AutoCAD.jsonl` | AutoCAD |
@@ -61,9 +63,50 @@ This repo holds `.jsonl` training data files for the HAVOC Training Syllabus —
 | `c.jsonl` | C |
 | `c#.jsonl` | C# |
 | `c++.jsonl` | C++ |
+| `CAD.jsonl` | CAD |
 | `creo.jsonl` | Creo |
 | `css.jsonl` | CSS |
 | `elect_components.jsonl` | Electrical Components |
+| `electrodynamics.jsonl` | Electrodynamics |
+| `financial_accounting.jsonl` | Financial Accounting |
+| `gcode_mcode.jsonl` | G-Code/M-Code (CNC) |
+| `general_system_theory.jsonl` | General System Theory |
+| `git_commands.jsonl` | Git Commands |
+| `html.jsonl` | HTML |
+| `hydraulics_pneumatics.jsonl` | Hydraulics, Pneumatics, and Electric Motors |
+| `industrial_dynamics.jsonl` | Industrial Dynamics |
+| `intellectual_property.jsonl` | Intellectual Property |
+| `transport_phenomena.jsonl` | Introductory Transport Phenomena |
+| `java.jsonl` | Java |
+| `javascript.jsonl` | JavaScript |
+| `json.jsonl` | JSON |
+| `macroeconomics.jsonl` | Macroeconomics |
+| `manufacturing_processes.jsonl` | Manufacturing Processes |
+| `markdown.jsonl` | Markdown |
+| `material_science.jsonl` | Material Science |
+| `matlab_octave.jsonl` | MATLAB/Octave Syntax |
+| `microeconomics.jsonl` | Microeconomics |
+| `php.jsonl` | PHP |
+| `physics.jsonl` | Physics |
+| `plc_ladder.jsonl` | PLC Ladder Logic |
+| `principles_of_management.jsonl` | Principles of Management |
+| `principles_of_marketing.jsonl` | Principles of Marketing |
+| `process_control.jsonl` | Process Control Technology |
+| `python.jsonl` | Python |
+| `quality_in_business.jsonl` | Quality in Business |
+| `react_jsx.jsonl` | React (JSX) |
+| `robotics.jsonl` | Robotics |
+| `siemens.jsonl` | Siemens (TIA Portal) |
+| `siemens_scl.jsonl` | Siemens SCL |
+| `six_sigma.jsonl` | Six Sigma (All Levels) |
+| `solidworks.jsonl` | Solid Modeling / SolidWorks |
+| `sql.jsonl` | SQL |
+| `structured_text.jsonl` | Structured Text (IEC 61131) |
+| `typescript.jsonl` | TypeScript |
+| `workplace_software.jsonl` | Workplace Software and Skills |
+| `wh_blown_film.jsonl` | W&H Blown Film Lines |
+| `ampacet_masterbatch.jsonl` | Ampacet Masterbatch (Additives & Resin Systems) |
+| `yaml.jsonl` | YAML |
 
 ---
 
@@ -81,53 +124,53 @@ Status: [DONE] Complete | [STUB] File exists, empty | [----] Not started
 | 6 | C | [STUB] |
 | 7 | C# | [STUB] |
 | 8 | C++ | [STUB] |
-| 9 | CAD | [----] |
+| 9 | CAD | [STUB] |
 | 10 | CSS | [STUB] |
 | 11 | Calculus | [DONE] 1,535 entries |
 | 12 | Creo | [STUB] |
 | 13 | Electrical Components | [STUB] |
-| 14 | Electrodynamics | [----] |
-| 15 | Financial Accounting | [----] |
-| 16 | G-Code/M-Code (CNC) | [----] |
-| 17 | General System Theory | [----] |
-| 18 | Git Commands | [----] |
-| 19 | HTML | [----] |
-| 20 | Hydraulics, Pneumatics, and Electric Motors | [----] |
-| 21 | Industrial Dynamics | [----] |
-| 22 | Intellectual Property | [----] |
-| 23 | Introductory Transport Phenomena | [----] |
-| 24 | JSON | [----] |
-| 25 | Java | [----] |
-| 26 | JavaScript | [----] |
-| 27 | MATLAB/Octave Syntax | [----] |
-| 28 | Macroeconomics | [----] |
-| 29 | Manufacturing Processes | [----] |
-| 30 | Markdown | [----] |
-| 31 | Material Science | [----] |
-| 32 | Microeconomics | [----] |
-| 33 | PHP | [----] |
-| 34 | PLC Ladder Logic | [----] |
-| 35 | Physics | [----] |
-| 36 | Principles of Management | [----] |
-| 37 | Principles of Marketing | [----] |
-| 38 | Process Control Technology | [----] |
-| 39 | Python | [----] |
-| 40 | Quality in Business | [----] |
-| 41 | React (JSX) | [----] |
-| 42 | Robotics | [----] |
-| 43 | SQL | [----] |
-| 44 | Siemens (TIA Portal) | [----] |
-| 45 | Siemens SCL | [----] |
-| 46 | Six Sigma (All Levels) | [----] |
-| 47 | Solid Modeling / SolidWorks | [----] |
-| 48 | Structured Text (IEC 61131) | [----] |
+| 14 | Electrodynamics | [STUB] |
+| 15 | Financial Accounting | [STUB] |
+| 16 | G-Code/M-Code (CNC) | [STUB] |
+| 17 | General System Theory | [STUB] |
+| 18 | Git Commands | [STUB] |
+| 19 | HTML | [STUB] |
+| 20 | Hydraulics, Pneumatics, and Electric Motors | [STUB] |
+| 21 | Industrial Dynamics | [STUB] |
+| 22 | Intellectual Property | [STUB] |
+| 23 | Introductory Transport Phenomena | [STUB] |
+| 24 | JSON | [STUB] |
+| 25 | Java | [STUB] |
+| 26 | JavaScript | [STUB] |
+| 27 | MATLAB/Octave Syntax | [STUB] |
+| 28 | Macroeconomics | [STUB] |
+| 29 | Manufacturing Processes | [STUB] |
+| 30 | Markdown | [STUB] |
+| 31 | Material Science | [STUB] |
+| 32 | Microeconomics | [STUB] |
+| 33 | PHP | [STUB] |
+| 34 | PLC Ladder Logic | [STUB] |
+| 35 | Physics | [STUB] |
+| 36 | Principles of Management | [STUB] |
+| 37 | Principles of Marketing | [STUB] |
+| 38 | Process Control Technology | [STUB] |
+| 39 | Python | [STUB] |
+| 40 | Quality in Business | [STUB] |
+| 41 | React (JSX) | [STUB] |
+| 42 | Robotics | [STUB] |
+| 43 | SQL | [STUB] |
+| 44 | Siemens (TIA Portal) | [STUB] |
+| 45 | Siemens SCL | [STUB] |
+| 46 | Six Sigma (All Levels) | [STUB] |
+| 47 | Solid Modeling / SolidWorks | [STUB] |
+| 48 | Structured Text (IEC 61131) | [STUB] |
 | 49 | Thermodynamics | [DONE] 1,070 entries — all 15 subtopics, all tiers |
 | 50 | Trigonometry | [DONE] 1,501 entries |
-| 51 | TypeScript | [----] |
-| 52 | Workplace Software and Skills | [----] |
-| 53 | YAML | [----] |
-| 54 | W&H Blown Film Lines | [----] |
-| 55 | Ampacet Masterbatch (Additives & Resin Systems) | [----] |
+| 51 | TypeScript | [STUB] |
+| 52 | Workplace Software and Skills | [STUB] |
+| 53 | YAML | [STUB] |
+| 54 | W&H Blown Film Lines | [STUB] |
+| 55 | Ampacet Masterbatch (Additives & Resin Systems) | [STUB] |
 
 ---
 
