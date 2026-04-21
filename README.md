@@ -24,29 +24,6 @@ This repo holds `.jsonl` training data files for the HAVOC Training Syllabus —
 | `Algebra.jsonl` | 1,315 | — | All tiers complete — ends in abstract/graduate algebra |
 | `Thermodynamics.jsonl` | **1,070** | 0 broken JSON, 0 dupes, 0 missing fields | All 15 subtopics covered, Beginner through Brutal |
 
-**Thermodynamics audit detail:**
-- 1,070 valid entries (1,071 non-empty lines, 0 malformed)
-- 1,070 unique prompts — no duplicates
-- All entries have both `prompt` and `completion` fields populated
-- Completion lengths: min 6 chars, max 882 chars, avg 268 chars
-- Coverage confirmed: starts at beginner basics ("Define heat in one sentence") through brutal-tier entropy theory ("Why does entropy bound cryptographic security?")
-- All 15 subtopics present:
-  1. Systems, properties, and state variables
-  2. Energy, heat, and work
-  3. First law of thermodynamics for closed systems
-  4. Properties of pure substances and phase change
-  5. Control-volume energy balances
-  6. Entropy and the second law basics
-  7. Ideal gas mixtures and psychrometric ideas
-  8. Power cycles and refrigeration cycles
-  9. Exergy and irreversibility intuition
-  10. Real fluids, property tables, and compressibility effects
-  11. Combustion and reacting systems basics
-  12. Availability analysis and second-law design tradeoffs
-  13. Coupling thermo with fluid flow and heat transfer
-  14. Cycle optimization under realistic engineering constraints
-  15. Thinking clearly about entropy when the equations get nasty
-
 ---
 
 ### Stub Files (0 entries — not yet started)
