@@ -1,10 +1,10 @@
 # HAVOC Training Dataset — Completions Repo
 
-**Last Audited:** 2026-04-21 | Audited by Claude (claude-opus-4-7)
+**Last Audited:** 2026-04-25 | Audited by Claude (claude-opus-4-7)
 
-**Dataset size:** 24,317 rows across 10 main files — **1,138,196 tokens** (cl100k_base)
+**Dataset size:** 25,029 rows across 10 main files — **1,186,415 tokens** (cl100k_base, prompt+completion)
 
-**In-progress:** `physics.jsonl` — Scott stopped at the **"extremely_hard"** difficulty tier on 2026-04-21. Easy / medium / hard / start of extremely_hard are complete (883 rows). Brutal tier not yet started.
+**Status:** `physics.jsonl` completed 2026-04-25 (1,600 rows, all five tiers). No populated files remain in progress.
 
 ---
 
@@ -16,21 +16,21 @@ Schema: `{"prompt", "completion", "difficulty", "task_type", "response_style"}`
 
 ---
 
-## Token Counts (2026-04-21, cl100k_base)
+## Token Counts (2026-04-25, cl100k_base, prompt+completion)
 
 | File | Rows | Tokens |
 |---|---:|---:|
-| Conversations.jsonl | 12,376 | 379,682 |
-| Trigonometry.jsonl | 1,500 | 109,577 |
-| calculus.jsonl | 1,535 | 108,632 |
-| Algebra.jsonl | 1,315 | 92,442 |
-| elect_components.jsonl | 1,497 | 90,519 |
-| Advanced_Eng_Math.jsonl | 1,474 | 77,387 |
-| AC_Circuits.jsonl | 1,348 | 72,452 |
-| electrodynamics.jsonl | 1,318 | 72,396 |
-| Thermodynamics.jsonl | 1,070 | 70,635 |
-| physics.jsonl *(in progress)* | 884 | 64,474 |
-| **TOTAL** | **24,317** | **1,138,196** |
+| Conversations.jsonl | 12,376 | 380,626 |
+| physics.jsonl | 1,600 | 111,617 |
+| Trigonometry.jsonl | 1,498 | 109,344 |
+| calculus.jsonl | 1,535 | 108,680 |
+| Algebra.jsonl | 1,314 | 92,438 |
+| elect_components.jsonl | 1,497 | 90,593 |
+| Advanced_Eng_Math.jsonl | 1,474 | 77,450 |
+| AC_Circuits.jsonl | 1,348 | 72,538 |
+| electrodynamics.jsonl | 1,318 | 72,472 |
+| Thermodynamics.jsonl | 1,069 | 70,657 |
+| **TOTAL** | **25,029** | **1,186,415** |
 
 ---
 
@@ -41,20 +41,15 @@ Schema: `{"prompt", "completion", "difficulty", "task_type", "response_style"}`
 | File | Entries | Notes |
 |---|---:|---|
 | `Conversations.jsonl` | 12,376 | General conversation set; 3 duplicates removed 2026-04-21; 1 row rescued from mislabeled `compilation` key |
+| `physics.jsonl` | 1,600 | All tiers; 11 near-duplicates removed 2026-04-25; 1 JSON error fixed 2026-04-21 |
 | `calculus.jsonl` | 1,535 | All tiers; ends in brutal optimization |
-| `Trigonometry.jsonl` | 1,500 | All tiers; 1 duplicate removed 2026-04-21 |
+| `Trigonometry.jsonl` | 1,498 | All tiers; 1 dupe removed 2026-04-21; 2 cross-tier near-dupes removed 2026-04-25 |
 | `elect_components.jsonl` | 1,497 | All tiers; 190 `extremely hard` → `extremely_hard` normalized; 198 `response_style` leaks reclassified 2026-04-21 |
 | `Advanced_Eng_Math.jsonl` | 1,474 | All tiers; 1 duplicate removed; 2 mislabeled-key rows rescued 2026-04-21; metadata not yet backfilled |
 | `AC_Circuits.jsonl` | 1,348 | All tiers; 2 duplicates removed 2026-04-21; `{prompt, completion}` only (no difficulty/task_type/response_style) |
 | `electrodynamics.jsonl` | 1,318 | All tiers; 168 `extremely hard` normalized; `analogy` task_type reclassified to `relation` |
-| `Algebra.jsonl` | 1,315 | All tiers; 200 rows metadata backfilled 2026-04-21 via content classification |
-| `Thermodynamics.jsonl` | 1,070 | All tiers; 46 `extremely hard` normalized; 6 invalid `response_style` reclassified |
-
-### In Progress
-
-| File | Entries | Status |
-|---|---:|---|
-| `physics.jsonl` | 884 | Stopped at **extremely_hard** tier on 2026-04-21. Earlier tiers complete. 1 JSON error fixed during audit (stray trailing period line 884). |
+| `Algebra.jsonl` | 1,314 | All tiers; 200 rows metadata backfilled 2026-04-21; 1 cross-tier near-dupe removed 2026-04-25 |
+| `Thermodynamics.jsonl` | 1,069 | All tiers; 46 `extremely hard` normalized; 6 invalid `response_style` reclassified; 1 cross-tier near-dupe removed 2026-04-25 |
 
 ---
 
@@ -156,7 +151,7 @@ Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 | 32 | Microeconomics | [STUB] |
 | 33 | PHP | [STUB] |
 | 34 | PLC Ladder Logic | [STUB] |
-| 35 | Physics | [WIP] 884 entries — stopped at extremely_hard tier 2026-04-21 |
+| 35 | Physics | [DONE] 1,600 entries |
 | 36 | Principles of Management | [STUB] |
 | 37 | Principles of Marketing | [STUB] |
 | 38 | Process Control Technology | [STUB] |
@@ -186,7 +181,7 @@ Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 |---|---:|---|
 | `Conversations.jsonl` | 12,376 | General Q&A; no schema metadata |
 | `Advanced_Eng_Math.jsonl` | 1,474 | Graduate-level engineering math; no schema metadata yet |
-| `Algebra.jsonl` | 1,315 | Linear/abstract algebra; metadata fully backfilled |
+| `Algebra.jsonl` | 1,314 | Linear/abstract algebra; metadata fully backfilled |
 | `AC_Circuits.jsonl` | 1,348 | Companion to Electrodynamics; no schema metadata |
 
 ---
@@ -209,6 +204,14 @@ Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 - **`AC_Circuits.jsonl`** and **`Advanced_Eng_Math.jsonl`**: prompt/completion only — no difficulty/task_type/response_style. Separate decision from Scott whether to backfill (per-Algebra approach) or leave raw.
 - **`-ScottsLaptop` variants**: left untouched per Scott's guidance. Several have their own defects (e.g., `Conversations-ScottsLaptop.jsonl` has 3 JSON errors, 3 duplicates, 1 mislabeled-key row) — these are external-tool snapshots, not authoritative.
 - **`Algebra-ScottsLaptop.jsonl`**: 200 rows, no metadata. Distinct from `Algebra.jsonl` (authoritative file).
+
+## Recent Fixes (2026-04-25)
+
+- physics: completed all five tiers (884 → 1,611 raw rows); 11 near-duplicate easy/definition rows removed during audit (e.g. three "Define electric field" entries collapsed to one); 1,600 final
+- Trigonometry: 2 cross-tier near-dupes removed (`Solve 2cos²x + 3cosx + 1 = 0` medium/hard pair; `Solve sin(x) = tan(x)` medium/extremely_hard pair) — kept the row whose tier matched the actual problem complexity
+- Algebra: 1 cross-tier near-dupe removed (`algebraic multiplicity vs geometric multiplicity` was duplicated as both medium and extremely_hard; the extremely_hard label was inappropriate)
+- Thermodynamics: 1 near-dupe removed (`What's a path function?` appeared on consecutive lines as both hard and easy)
+- All 10 populated files validated: zero JSON parse errors, zero exact duplicates, zero near-duplicates after dedup pass
 
 ## Recent Fixes (2026-04-21)
 
