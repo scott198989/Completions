@@ -1,61 +1,73 @@
 # HAVOC Training Dataset — Completions Repo
 
-**Last Audited:** 2026-04-25 | Audited by Claude (claude-opus-4-7)
+**Last Audited:** 2026-05-05 | Audited by Claude (claude-opus-4-7)
 
-**Dataset size:** 25,029 rows across 10 main files — **1,186,415 tokens** (cl100k_base, prompt+completion)
+**Naming convention:** Files prefixed with `D_` are complete ("Done"). Files without a prefix are either empty stubs or in-progress.
 
-**Status:** `physics.jsonl` completed 2026-04-25 (1,600 rows, all five tiers). No populated files remain in progress.
+**Dataset size:** 25,029 rows across 10 completed files — **1,186,415 tokens** (cl100k_base, prompt+completion). Plus `material_science.jsonl` in progress at 727 rows (not yet token-counted).
 
 ---
 
 ## Overview
 
-This repo holds `.jsonl` training data files for the HAVOC Training Syllabus — a 55-topic curriculum spanning software engineering, math, controls, business, materials, and industrial process domains. Each file contains prompt/completion pairs generated at five difficulty tiers (easy → medium → hard → extremely_hard → brutal), 15 subtopics per topic.
+This repo holds `.jsonl` training data files for the HAVOC Training Syllabus — a 55-topic curriculum spanning software engineering, math, controls, business, materials, and industrial process domains. Each completed topic file contains prompt/completion pairs generated at five difficulty tiers (easy → medium → hard → extremely_hard → brutal), 15 subtopics per topic.
 
 Schema: `{"prompt", "completion", "difficulty", "task_type", "response_style"}`
 
 ---
 
-## Token Counts (2026-04-25, cl100k_base, prompt+completion)
+## Repo Inventory
+
+- **59 `.jsonl` files** on disk: 10 done (`D_` prefix) + 1 in progress + 48 empty stubs
+- **2 Python scripts**: `build_sft.py`, `label_jsonl.py`
+- **README.md** (this file)
+
+---
+
+## Token Counts (2026-04-25 snapshot, cl100k_base, prompt+completion)
 
 | File | Rows | Tokens |
 |---|---:|---:|
-| Conversations.jsonl | 12,376 | 380,626 |
-| physics.jsonl | 1,600 | 111,617 |
-| Trigonometry.jsonl | 1,498 | 109,344 |
-| calculus.jsonl | 1,535 | 108,680 |
-| Algebra.jsonl | 1,314 | 92,438 |
-| elect_components.jsonl | 1,497 | 90,593 |
-| Advanced_Eng_Math.jsonl | 1,474 | 77,450 |
-| AC_Circuits.jsonl | 1,348 | 72,538 |
-| electrodynamics.jsonl | 1,318 | 72,472 |
-| Thermodynamics.jsonl | 1,069 | 70,657 |
+| `D_Conversations.jsonl` | 12,376 | 380,626 |
+| `D_physics.jsonl` | 1,600 | 111,617 |
+| `D_Trigonometry.jsonl` | 1,498 | 109,344 |
+| `D_calculus.jsonl` | 1,535 | 108,680 |
+| `D_Algebra.jsonl` | 1,314 | 92,438 |
+| `D_elect_components.jsonl` | 1,497 | 90,593 |
+| `D_Advanced_Eng_Math.jsonl` | 1,474 | 77,450 |
+| `D_AC_Circuits.jsonl` | 1,348 | 72,538 |
+| `D_electrodynamics.jsonl` | 1,318 | 72,472 |
+| `D_Thermodynamics.jsonl` | 1,069 | 70,657 |
 | **TOTAL** | **25,029** | **1,186,415** |
+
+`material_science.jsonl` (727 rows, WIP) not yet token-counted.
 
 ---
 
 ## Completion Status
 
-### Completed
+### Done (10 files)
 
 | File | Entries | Notes |
 |---|---:|---|
-| `Conversations.jsonl` | 12,376 | General conversation set; 3 duplicates removed 2026-04-21; 1 row rescued from mislabeled `compilation` key |
-| `physics.jsonl` | 1,600 | All tiers; 11 near-duplicates removed 2026-04-25; 1 JSON error fixed 2026-04-21 |
-| `calculus.jsonl` | 1,535 | All tiers; ends in brutal optimization |
-| `Trigonometry.jsonl` | 1,498 | All tiers; 1 dupe removed 2026-04-21; 2 cross-tier near-dupes removed 2026-04-25 |
-| `elect_components.jsonl` | 1,497 | All tiers; 190 `extremely hard` → `extremely_hard` normalized; 198 `response_style` leaks reclassified 2026-04-21 |
-| `Advanced_Eng_Math.jsonl` | 1,474 | All tiers; 1 duplicate removed; 2 mislabeled-key rows rescued 2026-04-21; metadata not yet backfilled |
-| `AC_Circuits.jsonl` | 1,348 | All tiers; 2 duplicates removed 2026-04-21; `{prompt, completion}` only (no difficulty/task_type/response_style) |
-| `electrodynamics.jsonl` | 1,318 | All tiers; 168 `extremely hard` normalized; `analogy` task_type reclassified to `relation` |
-| `Algebra.jsonl` | 1,314 | All tiers; 200 rows metadata backfilled 2026-04-21; 1 cross-tier near-dupe removed 2026-04-25 |
-| `Thermodynamics.jsonl` | 1,069 | All tiers; 46 `extremely hard` normalized; 6 invalid `response_style` reclassified; 1 cross-tier near-dupe removed 2026-04-25 |
+| `D_Conversations.jsonl` | 12,376 | General conversation set; 3 duplicates removed 2026-04-21; 1 row rescued from mislabeled `compilation` key |
+| `D_physics.jsonl` | 1,600 | All tiers; 11 near-duplicates removed 2026-04-25; 1 JSON error fixed 2026-04-21 |
+| `D_calculus.jsonl` | 1,535 | All tiers; ends in brutal optimization |
+| `D_Trigonometry.jsonl` | 1,498 | All tiers; 1 dupe removed 2026-04-21; 2 cross-tier near-dupes removed 2026-04-25 |
+| `D_elect_components.jsonl` | 1,497 | All tiers; 190 `extremely hard` → `extremely_hard` normalized; 198 `response_style` leaks reclassified 2026-04-21 |
+| `D_Advanced_Eng_Math.jsonl` | 1,474 | All tiers; 1 duplicate removed; 2 mislabeled-key rows rescued 2026-04-21; metadata not yet backfilled |
+| `D_AC_Circuits.jsonl` | 1,348 | All tiers; 2 duplicates removed 2026-04-21; `{prompt, completion}` only (no difficulty/task_type/response_style) |
+| `D_electrodynamics.jsonl` | 1,318 | All tiers; 168 `extremely hard` normalized; `analogy` task_type reclassified to `relation` |
+| `D_Algebra.jsonl` | 1,314 | All tiers; 200 rows metadata backfilled 2026-04-21; 1 cross-tier near-dupe removed 2026-04-25 |
+| `D_Thermodynamics.jsonl` | 1,069 | All tiers; 46 `extremely hard` normalized; 6 invalid `response_style` reclassified; 1 cross-tier near-dupe removed 2026-04-25 |
 
----
+### In Progress (1 file)
 
-### Stub Files (0 entries — not yet started)
+| File | Entries | Notes |
+|---|---:|---|
+| `material_science.jsonl` | 727 | Populated since last audit; tier coverage and metadata not yet verified. Will be renamed to `D_material_science.jsonl` once complete. |
 
-All 55 topic files exist. The following are still empty stubs:
+### Stubs (48 files — exist, empty)
 
 | File | Syllabus Topic |
 |---|---|
@@ -85,7 +97,6 @@ All 55 topic files exist. The following are still empty stubs:
 | `macroeconomics.jsonl` | Macroeconomics |
 | `manufacturing_processes.jsonl` | Manufacturing Processes |
 | `markdown.jsonl` | Markdown |
-| `material_science.jsonl` | Material Science |
 | `matlab_octave.jsonl` | MATLAB/Octave Syntax |
 | `microeconomics.jsonl` | Microeconomics |
 | `php.jsonl` | PHP |
@@ -115,106 +126,103 @@ All 55 topic files exist. The following are still empty stubs:
 
 Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 
-| # | Topic | Status |
-|---|---|---|
-| 1 | AutoCAD | [STUB] |
-| 2 | Bash/Shell | [STUB] |
-| 3 | Business Ethics | [STUB] |
-| 4 | Business Law | [STUB] |
-| 5 | Business Statistics | [STUB] |
-| 6 | C | [STUB] |
-| 7 | C# | [STUB] |
-| 8 | C++ | [STUB] |
-| 9 | CAD | [STUB] |
-| 10 | CSS | [STUB] |
-| 11 | Calculus | [DONE] 1,535 entries |
-| 12 | Creo | [STUB] |
-| 13 | Electrical Components | [DONE] 1,497 entries |
-| 14 | Electrodynamics | [DONE] 1,318 entries |
-| 15 | Financial Accounting | [STUB] |
-| 16 | G-Code/M-Code (CNC) | [STUB] |
-| 17 | General System Theory | [STUB] |
-| 18 | Git Commands | [STUB] |
-| 19 | HTML | [STUB] |
-| 20 | Hydraulics, Pneumatics, and Electric Motors | [STUB] |
-| 21 | Industrial Dynamics | [STUB] |
-| 22 | Intellectual Property | [STUB] |
-| 23 | Introductory Transport Phenomena | [STUB] |
-| 24 | JSON | [STUB] |
-| 25 | Java | [STUB] |
-| 26 | JavaScript | [STUB] |
-| 27 | MATLAB/Octave Syntax | [STUB] |
-| 28 | Macroeconomics | [STUB] |
-| 29 | Manufacturing Processes | [STUB] |
-| 30 | Markdown | [STUB] |
-| 31 | Material Science | [STUB] |
-| 32 | Microeconomics | [STUB] |
-| 33 | PHP | [STUB] |
-| 34 | PLC Ladder Logic | [STUB] |
-| 35 | Physics | [DONE] 1,600 entries |
-| 36 | Principles of Management | [STUB] |
-| 37 | Principles of Marketing | [STUB] |
-| 38 | Process Control Technology | [STUB] |
-| 39 | Python | [STUB] |
-| 40 | Quality in Business | [STUB] |
-| 41 | React (JSX) | [STUB] |
-| 42 | Robotics | [STUB] |
-| 43 | SQL | [STUB] |
-| 44 | Siemens (TIA Portal) | [STUB] |
-| 45 | Siemens SCL | [STUB] |
-| 46 | Six Sigma (All Levels) | [STUB] |
-| 47 | Solid Modeling / SolidWorks | [STUB] |
-| 48 | Structured Text (IEC 61131) | [STUB] |
-| 49 | Thermodynamics | [DONE] 1,070 entries |
-| 50 | Trigonometry | [DONE] 1,500 entries |
-| 51 | TypeScript | [STUB] |
-| 52 | Workplace Software and Skills | [STUB] |
-| 53 | YAML | [STUB] |
-| 54 | W&H Blown Film Lines | [STUB] |
-| 55 | Ampacet Masterbatch (Additives & Resin Systems) | [STUB] |
+| # | Topic | File | Status |
+|---|---|---|---|
+| 1 | AutoCAD | `AutoCAD.jsonl` | [STUB] |
+| 2 | Bash/Shell | `Bash_Shell.jsonl` | [STUB] |
+| 3 | Business Ethics | `business_ethics.jsonl` | [STUB] |
+| 4 | Business Law | `business_law.jsonl` | [STUB] |
+| 5 | Business Statistics | `business_stats.jsonl` | [STUB] |
+| 6 | C | `c.jsonl` | [STUB] |
+| 7 | C# | `c#.jsonl` | [STUB] |
+| 8 | C++ | `c++.jsonl` | [STUB] |
+| 9 | CAD | `CAD.jsonl` | [STUB] |
+| 10 | CSS | `css.jsonl` | [STUB] |
+| 11 | Calculus | `D_calculus.jsonl` | [DONE] 1,535 entries |
+| 12 | Creo | `creo.jsonl` | [STUB] |
+| 13 | Electrical Components | `D_elect_components.jsonl` | [DONE] 1,497 entries |
+| 14 | Electrodynamics | `D_electrodynamics.jsonl` | [DONE] 1,318 entries |
+| 15 | Financial Accounting | `financial_accounting.jsonl` | [STUB] |
+| 16 | G-Code/M-Code (CNC) | `gcode_mcode.jsonl` | [STUB] |
+| 17 | General System Theory | `general_system_theory.jsonl` | [STUB] |
+| 18 | Git Commands | `git_commands.jsonl` | [STUB] |
+| 19 | HTML | `html.jsonl` | [STUB] |
+| 20 | Hydraulics, Pneumatics, and Electric Motors | `hydraulics_pneumatics.jsonl` | [STUB] |
+| 21 | Industrial Dynamics | `industrial_dynamics.jsonl` | [STUB] |
+| 22 | Intellectual Property | `intellectual_property.jsonl` | [STUB] |
+| 23 | Introductory Transport Phenomena | `transport_phenomena.jsonl` | [STUB] |
+| 24 | JSON | `json.jsonl` | [STUB] |
+| 25 | Java | `java.jsonl` | [STUB] |
+| 26 | JavaScript | `javascript.jsonl` | [STUB] |
+| 27 | MATLAB/Octave Syntax | `matlab_octave.jsonl` | [STUB] |
+| 28 | Macroeconomics | `macroeconomics.jsonl` | [STUB] |
+| 29 | Manufacturing Processes | `manufacturing_processes.jsonl` | [STUB] |
+| 30 | Markdown | `markdown.jsonl` | [STUB] |
+| 31 | Material Science | `material_science.jsonl` | [WIP] 727 entries |
+| 32 | Microeconomics | `microeconomics.jsonl` | [STUB] |
+| 33 | PHP | `php.jsonl` | [STUB] |
+| 34 | PLC Ladder Logic | `plc_ladder.jsonl` | [STUB] |
+| 35 | Physics | `D_physics.jsonl` | [DONE] 1,600 entries |
+| 36 | Principles of Management | `principles_of_management.jsonl` | [STUB] |
+| 37 | Principles of Marketing | `principles_of_marketing.jsonl` | [STUB] |
+| 38 | Process Control Technology | `process_control.jsonl` | [STUB] |
+| 39 | Python | `python.jsonl` | [STUB] |
+| 40 | Quality in Business | `quality_in_business.jsonl` | [STUB] |
+| 41 | React (JSX) | `react_jsx.jsonl` | [STUB] |
+| 42 | Robotics | `robotics.jsonl` | [STUB] |
+| 43 | SQL | `sql.jsonl` | [STUB] |
+| 44 | Siemens (TIA Portal) | `siemens.jsonl` | [STUB] |
+| 45 | Siemens SCL | `siemens_scl.jsonl` | [STUB] |
+| 46 | Six Sigma (All Levels) | `six_sigma.jsonl` | [STUB] |
+| 47 | Solid Modeling / SolidWorks | `solidworks.jsonl` | [STUB] |
+| 48 | Structured Text (IEC 61131) | `structured_text.jsonl` | [STUB] |
+| 49 | Thermodynamics | `D_Thermodynamics.jsonl` | [DONE] 1,069 entries |
+| 50 | Trigonometry | `D_Trigonometry.jsonl` | [DONE] 1,498 entries |
+| 51 | TypeScript | `typescript.jsonl` | [STUB] |
+| 52 | Workplace Software and Skills | `workplace_software.jsonl` | [STUB] |
+| 53 | YAML | `yaml.jsonl` | [STUB] |
+| 54 | W&H Blown Film Lines | `wh_blown_film.jsonl` | [STUB] |
+| 55 | Ampacet Masterbatch (Additives & Resin Systems) | `ampacet_masterbatch.jsonl` | [STUB] |
+
+**Syllabus tally:** 6 done, 1 in progress, 48 stubs.
 
 ---
 
-## Bonus / Supplemental Files
+## Supplemental Files (4 — outside the 55-topic syllabus)
 
 | File | Entries | Notes |
 |---|---:|---|
-| `Conversations.jsonl` | 12,376 | General Q&A; no schema metadata |
-| `Advanced_Eng_Math.jsonl` | 1,474 | Graduate-level engineering math; no schema metadata yet |
-| `Algebra.jsonl` | 1,314 | Linear/abstract algebra; metadata fully backfilled |
-| `AC_Circuits.jsonl` | 1,348 | Companion to Electrodynamics; no schema metadata |
-
----
-
-## Pipeline / Aggregate Files
-
-| File | Entries | Purpose |
-|---|---:|---|
-| `combined_labeled.jsonl` | 2,925 | Labeled combined dataset |
-| `train.jsonl` | 2,542 | Training split |
-| `val.jsonl` | 283 | Validation split |
-| `Conversations_filtered.jsonl` | 5,506 | Candidate filtered conversations — ≥80 chars, non-restatement, non-filler (for review) |
-| `Advanced_Eng_Math_KEEP.jsonl` | 1,281 | Rows passing regeneration filter (for review) |
-| `Advanced_Eng_Math_REGEN.jsonl` | 193 | Rows flagged for regeneration (for review) |
+| `D_Conversations.jsonl` | 12,376 | General Q&A; no schema metadata |
+| `D_Advanced_Eng_Math.jsonl` | 1,474 | Graduate-level engineering math; no schema metadata yet |
+| `D_Algebra.jsonl` | 1,314 | Linear/abstract algebra; metadata fully backfilled |
+| `D_AC_Circuits.jsonl` | 1,348 | Companion to Electrodynamics; no schema metadata |
 
 ---
 
 ## Known Concerns (Flagged 2026-04-21)
 
-- **`AC_Circuits.jsonl`** and **`Advanced_Eng_Math.jsonl`**: prompt/completion only — no difficulty/task_type/response_style. Separate decision from Scott whether to backfill (per-Algebra approach) or leave raw.
+- **`D_AC_Circuits.jsonl`** and **`D_Advanced_Eng_Math.jsonl`**: prompt/completion only — no difficulty/task_type/response_style. Separate decision from Scott whether to backfill (per-Algebra approach) or leave raw.
 - **`-ScottsLaptop` variants**: left untouched per Scott's guidance. Several have their own defects (e.g., `Conversations-ScottsLaptop.jsonl` has 3 JSON errors, 3 duplicates, 1 mislabeled-key row) — these are external-tool snapshots, not authoritative.
-- **`Algebra-ScottsLaptop.jsonl`**: 200 rows, no metadata. Distinct from `Algebra.jsonl` (authoritative file).
+- **`Algebra-ScottsLaptop.jsonl`**: 200 rows, no metadata. Distinct from `D_Algebra.jsonl` (authoritative file).
 
-## Recent Fixes (2026-04-25)
+---
 
-- physics: completed all five tiers (884 → 1,611 raw rows); 11 near-duplicate easy/definition rows removed during audit (e.g. three "Define electric field" entries collapsed to one); 1,600 final
+## Changelog
+
+### 2026-05-05
+- Renamed all 10 completed populated files with `D_` prefix to mark "Done" status (e.g., `physics.jsonl` → `D_physics.jsonl`)
+- Repaired `D_.jsonl` (truncated rename artifact) → `D_physics.jsonl`
+- `material_science.jsonl` populated to 727 rows (status: WIP, not yet validated)
+- README restructured as a changelog; pipeline/aggregate files section dropped (none of those files exist on disk yet — defer until they do)
+
+### 2026-04-25
+- physics: completed all five tiers (884 → 1,611 raw rows); 11 near-duplicate easy/definition rows removed during audit (e.g., three "Define electric field" entries collapsed to one); 1,600 final
 - Trigonometry: 2 cross-tier near-dupes removed (`Solve 2cos²x + 3cosx + 1 = 0` medium/hard pair; `Solve sin(x) = tan(x)` medium/extremely_hard pair) — kept the row whose tier matched the actual problem complexity
 - Algebra: 1 cross-tier near-dupe removed (`algebraic multiplicity vs geometric multiplicity` was duplicated as both medium and extremely_hard; the extremely_hard label was inappropriate)
 - Thermodynamics: 1 near-dupe removed (`What's a path function?` appeared on consecutive lines as both hard and easy)
 - All 10 populated files validated: zero JSON parse errors, zero exact duplicates, zero near-duplicates after dedup pass
 
-## Recent Fixes (2026-04-21)
-
+### 2026-04-21
 - Thermodynamics: 46 `extremely hard` → `extremely_hard`; 6 response_style reassignments
 - electrodynamics: 168 `extremely hard` → `extremely_hard`; `analogy` task_type → `relation`
 - Algebra: 200 rows backfilled with difficulty/task_type/response_style; 1 `explanatory` → `structured`
