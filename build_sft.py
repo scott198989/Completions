@@ -1,58 +1,79 @@
-"""Build SFT-ready train/val files in chat-messages format.
+"""SFT formatting layer for the HAVOC completions dataset.
 
-Reads combined_labeled.jsonl and produces:
-  train.jsonl  (~90% of rows)
-  val.jsonl    (~10% of rows)
+The on-disk source format is canonical and is NOT modified by this script:
+    {"prompt": ..., "completion": ...,
+     "difficulty": ..., "task_type": ..., "response_style": ...}
+(D_AC_Circuits.jsonl and D_Advanced_Eng_Math.jsonl carry only prompt+completion.)
 
-Each output row:
-  {"messages": [
-      {"role": "system",    "content": "<tags as structured system prompt>"},
-      {"role": "user",      "content": "<original prompt>"},
-      {"role": "assistant", "content": "<original completion>"}
-  ]}
+This script reads every D_*.jsonl source, dedups on (prompt, completion), shuffles
+deterministically, and writes train.jsonl / val.jsonl as one {"text": ...} record
+per line.
 
-Conditioning tags live in the system message so they don't leak into the
-user-turn distribution at inference time. Dedup is keyed on (prompt, completion).
-Split is deterministic via a fixed seed.
+Default text format:
+
+    User: {prompt}
+    Assistant: {completion}
+
+With INCLUDE_METADATA=True (and the row carries all three metadata fields), the
+record is prepended with conditioning lines:
+
+    Difficulty: {difficulty}
+    Task type: {task_type}
+    Style: {response_style}
+    User: {prompt}
+    Assistant: {completion}
+
+Rows missing any metadata field fall back to the default format even when
+INCLUDE_METADATA=True.
 """
 
 import json
 import random
 from pathlib import Path
 
-ROOT = Path(r"c:/Users/stusc/OneDrive/Desktop/Completions")
-SRC = ROOT / "combined_labeled.jsonl"
+ROOT = Path(__file__).parent
+SOURCES = sorted(ROOT.glob("D_*.jsonl"))
 TRAIN = ROOT / "train.jsonl"
 VAL = ROOT / "val.jsonl"
 
 SEED = 13
 VAL_FRACTION = 0.10
+INCLUDE_METADATA = False
+
+META_KEYS = ("difficulty", "task_type", "response_style")
 
 
-def system_prompt(row: dict) -> str:
-    return (
-        f"You are a tutor answering a question in the domain of {row['domain']}. "
-        f"Target difficulty: {row['difficulty']}. "
-        f"Task type: {row['task_type']}. "
-        f"Response style: {row['response_style']}."
-    )
+def format_row(row: dict, include_metadata: bool = INCLUDE_METADATA) -> str:
+    parts = []
+    if include_metadata and all(row.get(k) for k in META_KEYS):
+        parts.append(f"Difficulty: {row['difficulty']}")
+        parts.append(f"Task type: {row['task_type']}")
+        parts.append(f"Style: {row['response_style']}")
+    parts.append(f"User: {row['prompt']}")
+    parts.append(f"Assistant: {row['completion']}")
+    return "\n".join(parts)
+
+
+def load_rows():
+    seen = set()
+    rows = []
+    for src in SOURCES:
+        with src.open("r", encoding="utf-8") as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                o = json.loads(line)
+                key = (o["prompt"].strip(), o["completion"].strip())
+                if key in seen:
+                    continue
+                seen.add(key)
+                rows.append(o)
+    return rows
 
 
 def main():
-    seen = set()
-    rows = []
-    with SRC.open("r", encoding="utf-8") as f:
-        for line in f:
-            line = line.strip()
-            if not line:
-                continue
-            o = json.loads(line)
-            key = (o["prompt"].strip(), o["completion"].strip())
-            if key in seen:
-                continue
-            seen.add(key)
-            rows.append(o)
-
+    rows = load_rows()
     rng = random.Random(SEED)
     rng.shuffle(rows)
 
@@ -63,22 +84,17 @@ def main():
     def dump(path, data):
         with path.open("w", encoding="utf-8") as out:
             for r in data:
-                rec = {
-                    "messages": [
-                        {"role": "system", "content": system_prompt(r)},
-                        {"role": "user", "content": r["prompt"]},
-                        {"role": "assistant", "content": r["completion"]},
-                    ]
-                }
+                rec = {"text": format_row(r, INCLUDE_METADATA)}
                 out.write(json.dumps(rec, ensure_ascii=False) + "\n")
 
     dump(TRAIN, train_rows)
     dump(VAL, val_rows)
 
-    print(f"source rows:     {sum(1 for _ in SRC.open('r', encoding='utf-8'))}")
-    print(f"after dedup:     {len(rows)}")
-    print(f"train:           {len(train_rows)} -> {TRAIN.name}")
-    print(f"val:             {len(val_rows)} -> {VAL.name}")
+    print(f"sources:          {len(SOURCES)} files")
+    print(f"after dedup:      {len(rows)}")
+    print(f"include_metadata: {INCLUDE_METADATA}")
+    print(f"train:            {len(train_rows)} -> {TRAIN.name}")
+    print(f"val:              {len(val_rows)} -> {VAL.name}")
 
 
 if __name__ == "__main__":

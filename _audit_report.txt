@@ -1,0 +1,364 @@
+file                                             rows     tokens  parse  schema  exact  pdup  near
+----------------------------------------------------------------------------------------------------
+D_AC_Circuits.jsonl                              1348      72538      0       0      0     0     0
+D_Advanced_Eng_Math.jsonl                        1474      77450      0       0      0     0     0
+D_Algebra.jsonl                                  1314      92438      0       0      0     0     0
+D_calculus.jsonl                                 1535     108680      0       0      0     0     0
+D_Conversations.jsonl                           12376     380626      0       0      0     0   110
+D_elect_components.jsonl                         1497      90593      0       0      0     0     0
+D_electrodynamics.jsonl                          1318      72472      0       0      0     0     0
+D_material_science.jsonl                         1601     112235      0       0      0     3     1
+D_physics.jsonl                                  1600     111617      0       0      0     0     0
+D_Thermodynamics.jsonl                           1069      70657      0       0      0     0     0
+D_Trigonometry.jsonl                             1498     109344      0       0      0     0     1
+----------------------------------------------------------------------------------------------------
+TOTAL                                           26630    1298650
+
+
+=== DETAILS ===
+
+
+--- D_Conversations.jsonl ---
+  NEAR     L38 <-> L6896 (j=1.0)
+           A: "What's good?"
+           B: "what's good?"
+  NEAR     L44 <-> L7863 (j=1.0)
+           A: "what's up!"
+           B: "what's up."
+  NEAR     L44 <-> L11414 (j=1.0)
+           A: "what's up!"
+           B: "what's up?"
+  NEAR     L7863 <-> L11414 (j=1.0)
+           A: "what's up."
+           B: "what's up?"
+  NEAR     L1576 <-> L12229 (j=1.0)
+           A: "What's the difference between baking soda and baking powder?"
+           B: 'What’s the difference between baking soda and baking powder?'
+  NEAR     L218 <-> L2743 (j=1.0)
+           A: "How's everything?"
+           B: "how's everything"
+  NEAR     L350 <-> L2398 (j=1.0)
+           A: 'hellooo!'
+           B: 'hellooo 👋'
+  NEAR     L350 <-> L2958 (j=1.0)
+           A: 'hellooo!'
+           B: 'hellooo!!'
+  NEAR     L2398 <-> L2958 (j=1.0)
+           A: 'hellooo 👋'
+           B: 'hellooo!!'
+  NEAR     L360 <-> L2710 (j=1.0)
+           A: 'good evening'
+           B: 'Good evening'
+  NEAR     L1854 <-> L9260 (j=1.0)
+           A: 'what are you up to?'
+           B: 'what are you up to'
+  NEAR     L8159 <-> L11558 (j=1.0)
+           A: "If I don't feel confident, I shouldn't do it."
+           B: 'If I don’t feel confident, I shouldn’t do it.'
+  NEAR     L626 <-> L1887 (j=1.0)
+           A: "How's it hanging"
+           B: "how's it hanging?"
+  NEAR     L656 <-> L8556 (j=1.0)
+           A: 'hey!'
+           B: 'hey'
+  NEAR     L656 <-> L11228 (j=1.0)
+           A: 'hey!'
+           B: 'hey.'
+  NEAR     L8556 <-> L11228 (j=1.0)
+           A: 'hey'
+           B: 'hey.'
+  NEAR     L676 <-> L9030 (j=1.0)
+           A: "I said 'you too' when the waiter said enjoy your meal."
+           B: 'I said "you too" when the waiter said enjoy your meal.'
+  NEAR     L4589 <-> L9275 (j=1.0)
+           A: "If I'm not sore, the workout didn't count."
+           B: 'If I’m not sore, the workout didn’t count.'
+  NEAR     L722 <-> L9953 (j=1.0)
+           A: 'Hey there'
+           B: 'hey there'
+  NEAR     L783 <-> L1979 (j=1.0)
+           A: 'Hey stranger'
+           B: 'hey, stranger'
+  NEAR     L783 <-> L6044 (j=1.0)
+           A: 'Hey stranger'
+           B: 'hey stranger.'
+  NEAR     L783 <-> L8395 (j=1.0)
+           A: 'Hey stranger'
+           B: 'hey stranger'
+  NEAR     L1979 <-> L6044 (j=1.0)
+           A: 'hey, stranger'
+           B: 'hey stranger.'
+  NEAR     L1979 <-> L8395 (j=1.0)
+           A: 'hey, stranger'
+           B: 'hey stranger'
+  NEAR     L6044 <-> L8395 (j=1.0)
+           A: 'hey stranger.'
+           B: 'hey stranger'
+  NEAR     L828 <-> L10839 (j=1.0)
+           A: 'Is grass a tree?'
+           B: 'is grass a tree?'
+  NEAR     L9736 <-> L11872 (j=1.0)
+           A: "If I miss one workout, I've ruined my progress."
+           B: 'If I miss one workout, I’ve ruined my progress.'
+  NEAR     L978 <-> L5322 (j=1.0)
+           A: 'sup, friend'
+           B: 'Sup friend'
+  NEAR     L1080 <-> L2132 (j=1.0)
+           A: 'hey hey!!'
+           B: 'Hey hey'
+  NEAR     L1080 <-> L2789 (j=1.0)
+           A: 'hey hey!!'
+           B: 'hey hey'
+  NEAR     L1080 <-> L11500 (j=1.0)
+           A: 'hey hey!!'
+           B: 'hey hey!'
+  NEAR     L2132 <-> L2789 (j=1.0)
+           A: 'Hey hey'
+           B: 'hey hey'
+  NEAR     L2132 <-> L11500 (j=1.0)
+           A: 'Hey hey'
+           B: 'hey hey!'
+  NEAR     L2789 <-> L11500 (j=1.0)
+           A: 'hey hey'
+           B: 'hey hey!'
+  NEAR     L1113 <-> L2770 (j=1.0)
+           A: 'Hi hi'
+           B: 'hi hi!'
+  NEAR     L1113 <-> L11935 (j=1.0)
+           A: 'Hi hi'
+           B: 'hi hi 👋'
+  NEAR     L2770 <-> L11935 (j=1.0)
+           A: 'hi hi!'
+           B: 'hi hi 👋'
+  NEAR     L1327 <-> L6617 (j=1.0)
+           A: 'Why do plants need water?'
+           B: 'why do plants need water'
+  NEAR     L1466 <-> L3568 (j=1.0)
+           A: 'hello??'
+           B: 'hello!!'
+  NEAR     L1466 <-> L4681 (j=1.0)
+           A: 'hello??'
+           B: 'hello 👋'
+  NEAR     L1466 <-> L4810 (j=1.0)
+           A: 'hello??'
+           B: 'hello!'
+  NEAR     L1466 <-> L8643 (j=1.0)
+           A: 'hello??'
+           B: 'hello'
+  NEAR     L3568 <-> L4681 (j=1.0)
+           A: 'hello!!'
+           B: 'hello 👋'
+  NEAR     L3568 <-> L4810 (j=1.0)
+           A: 'hello!!'
+           B: 'hello!'
+  NEAR     L3568 <-> L8643 (j=1.0)
+           A: 'hello!!'
+           B: 'hello'
+  NEAR     L4681 <-> L4810 (j=1.0)
+           A: 'hello 👋'
+           B: 'hello!'
+  NEAR     L4681 <-> L8643 (j=1.0)
+           A: 'hello 👋'
+           B: 'hello'
+  NEAR     L4810 <-> L8643 (j=1.0)
+           A: 'hello!'
+           B: 'hello'
+  NEAR     L3501 <-> L4509 (j=0.875)
+           A: "If there's any risk at all, I should avoid it."
+           B: "If there's any risk at all, I should avoid it completely."
+  NEAR     L1652 <-> L1902 (j=1.0)
+           A: 'Hi there'
+           B: 'hi there :)'
+  NEAR     L1652 <-> L2931 (j=1.0)
+           A: 'Hi there'
+           B: 'hi there'
+  NEAR     L1652 <-> L4954 (j=1.0)
+           A: 'Hi there'
+           B: 'hi there.'
+  NEAR     L1652 <-> L7432 (j=1.0)
+           A: 'Hi there'
+           B: 'hi there 👋'
+  NEAR     L1902 <-> L2931 (j=1.0)
+           A: 'hi there :)'
+           B: 'hi there'
+  NEAR     L1902 <-> L4954 (j=1.0)
+           A: 'hi there :)'
+           B: 'hi there.'
+  NEAR     L1902 <-> L7432 (j=1.0)
+           A: 'hi there :)'
+           B: 'hi there 👋'
+  NEAR     L2931 <-> L4954 (j=1.0)
+           A: 'hi there'
+           B: 'hi there.'
+  NEAR     L2931 <-> L7432 (j=1.0)
+           A: 'hi there'
+           B: 'hi there 👋'
+  NEAR     L4954 <-> L7432 (j=1.0)
+           A: 'hi there.'
+           B: 'hi there 👋'
+  NEAR     L1776 <-> L6133 (j=1.0)
+           A: "How's your day shaping up?"
+           B: "how's your day shaping up?"
+  NEAR     L2223 <-> L10295 (j=1.0)
+           A: "I should answer every message immediately or I'm rude."
+           B: 'I should answer every message immediately or I’m rude.'
+  NEAR     L5703 <-> L7835 (j=1.0)
+           A: "What's the point of stretching after sitting all day?"
+           B: 'What’s the point of stretching after sitting all day?'
+  NEAR     L2898 <-> L6350 (j=1.0)
+           A: 'sup!!'
+           B: 'Sup'
+  NEAR     L2898 <-> L9421 (j=1.0)
+           A: 'sup!!'
+           B: 'sup?'
+  NEAR     L2898 <-> L10936 (j=1.0)
+           A: 'sup!!'
+           B: 'sup'
+  NEAR     L6350 <-> L9421 (j=1.0)
+           A: 'Sup'
+           B: 'sup?'
+  NEAR     L6350 <-> L10936 (j=1.0)
+           A: 'Sup'
+           B: 'sup'
+  NEAR     L9421 <-> L10936 (j=1.0)
+           A: 'sup?'
+           B: 'sup'
+  NEAR     L2966 <-> L10194 (j=1.0)
+           A: 'Can you drink ocean water?'
+           B: 'can you drink ocean water'
+  NEAR     L3379 <-> L8400 (j=1.0)
+           A: "what's happening"
+           B: "What's happening?"
+  NEAR     L3387 <-> L8484 (j=1.0)
+           A: 'good morning'
+           B: 'Good morning!'
+  NEAR     L3601 <-> L8385 (j=1.0)
+           A: 'Greetings'
+           B: 'greetings'
+  NEAR     L3659 <-> L11773 (j=1.0)
+           A: 'everything chill today?'
+           B: 'Everything chill today?'
+  NEAR     L4032 <-> L7255 (j=1.0)
+           A: 'Hi!'
+           B: 'hi'
+  NEAR     L4032 <-> L9169 (j=1.0)
+           A: 'Hi!'
+           B: 'Hi'
+  NEAR     L7255 <-> L9169 (j=1.0)
+           A: 'hi'
+           B: 'Hi'
+  NEAR     L4206 <-> L7218 (j=1.0)
+           A: 'Hey friend'
+           B: 'hey friend!!'
+  NEAR     L4206 <-> L8074 (j=1.0)
+           A: 'Hey friend'
+           B: 'hey friend'
+  NEAR     L4206 <-> L9700 (j=1.0)
+           A: 'Hey friend'
+           B: 'hey friend.'
+  NEAR     L4206 <-> L11980 (j=1.0)
+           A: 'Hey friend'
+           B: 'hey friend!'
+  NEAR     L7218 <-> L8074 (j=1.0)
+           A: 'hey friend!!'
+           B: 'hey friend'
+  NEAR     L7218 <-> L9700 (j=1.0)
+           A: 'hey friend!!'
+           B: 'hey friend.'
+  NEAR     L7218 <-> L11980 (j=1.0)
+           A: 'hey friend!!'
+           B: 'hey friend!'
+  NEAR     L8074 <-> L9700 (j=1.0)
+           A: 'hey friend'
+           B: 'hey friend.'
+  NEAR     L8074 <-> L11980 (j=1.0)
+           A: 'hey friend'
+           B: 'hey friend!'
+  NEAR     L9700 <-> L11980 (j=1.0)
+           A: 'hey friend.'
+           B: 'hey friend!'
+  NEAR     L4419 <-> L6812 (j=1.0)
+           A: 'good afternoon'
+           B: 'Good afternoon'
+  NEAR     L4532 <-> L10647 (j=1.0)
+           A: 'You surviving the day?'
+           B: 'you surviving the day?'
+  NEAR     L4894 <-> L10475 (j=1.0)
+           A: 'how are things'
+           B: 'How are things?'
+  NEAR     L5271 <-> L10161 (j=1.0)
+           A: "What's the haps?"
+           B: "what's the haps?"
+  NEAR     L5316 <-> L11197 (j=1.0)
+           A: "What's the move today?"
+           B: "what's the move today?"
+  NEAR     L5329 <-> L11823 (j=1.0)
+           A: "How's it going?"
+           B: "how's it going"
+  NEAR     L5331 <-> L7289 (j=1.0)
+           A: 'hello there?'
+           B: 'Hello there'
+  NEAR     L5331 <-> L8735 (j=1.0)
+           A: 'hello there?'
+           B: 'hello there!'
+  NEAR     L7289 <-> L8735 (j=1.0)
+           A: 'Hello there'
+           B: 'hello there!'
+  NEAR     L5529 <-> L7051 (j=1.0)
+           A: "How's the day been?"
+           B: "how's the day been?"
+  NEAR     L6284 <-> L11514 (j=1.0)
+           A: "What's the best time to work out?"
+           B: 'What’s the best time to work out?'
+  NEAR     L7313 <-> L10514 (j=1.0)
+           A: 'Good to see you'
+           B: 'good to see you'
+  NEAR     L7631 <-> L9080 (j=1.0)
+           A: "What's a decent last-minute gift?"
+           B: 'What’s a decent last-minute gift?'
+  NEAR     L7699 <-> L8198 (j=1.0)
+           A: 'hiya 👋'
+           B: 'hiya'
+  NEAR     L7777 <-> L8544 (j=1.0)
+           A: 'What’s better for notes: paper or phone?'
+           B: "What's better for notes: paper or phone?"
+  NEAR     L8091 <-> L8382 (j=1.0)
+           A: 'Howdy'
+           B: 'howdy'
+  NEAR     L8091 <-> L10216 (j=1.0)
+           A: 'Howdy'
+           B: 'howdy.'
+  NEAR     L8382 <-> L10216 (j=1.0)
+           A: 'howdy'
+           B: 'howdy.'
+  NEAR     L8097 <-> L10924 (j=1.0)
+           A: 'yo?'
+           B: 'Yo'
+  NEAR     L8097 <-> L10990 (j=1.0)
+           A: 'yo?'
+           B: 'yo'
+  NEAR     L10924 <-> L10990 (j=1.0)
+           A: 'Yo'
+           B: 'yo'
+  NEAR     L11589 <-> L12244 (j=1.0)
+           A: "If I'm busy all day, I was productive."
+           B: 'If I’m busy all day, I was productive.'
+  NEAR     L9692 <-> L12049 (j=1.0)
+           A: 'Why is grass green?'
+           B: 'why is grass green'
+  NEAR     L11108 <-> L11401 (j=1.0)
+           A: 'Do all animals have brains?'
+           B: 'do all animals have brains'
+
+--- D_material_science.jsonl ---
+  P-DUPE   L10,211: 'Why are ceramics often brittle?'
+  P-DUPE   L526,663: 'Define cementite.'
+  P-DUPE   L537,1478: 'Define erosion-corrosion.'
+  NEAR     L330 <-> L1488 (j=1.0)
+           A: 'Define solid-solution strengthening.'
+           B: 'Define solid solution strengthening.'
+
+--- D_Trigonometry.jsonl ---
+  NEAR     L2 <-> L239 (j=1.0)
+           A: 'What does the graph of y = sin(x) + cos(x) look like?'
+           B: 'What does the graph of y = sin(x) · cos(x) look like?'

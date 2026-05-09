@@ -1,10 +1,10 @@
 # HAVOC Training Dataset — Completions Repo
 
-**Last Audited:** 2026-05-05 | Audited by Claude (claude-opus-4-7)
+**Last Audited:** 2026-05-09 | Audited by Claude (claude-opus-4-7)
 
 **Naming convention:** Files prefixed with `D_` are complete ("Done"). Files without a prefix are either empty stubs or in-progress.
 
-**Dataset size:** 25,029 rows across 10 completed files — **1,186,415 tokens** (cl100k_base, prompt+completion). Plus `material_science.jsonl` in progress at 727 rows (not yet token-counted).
+**Dataset size:** 26,630 rows across 11 completed files — **1,298,650 tokens** (cl100k_base, prompt+completion).
 
 ---
 
@@ -18,17 +18,18 @@ Schema: `{"prompt", "completion", "difficulty", "task_type", "response_style"}`
 
 ## Repo Inventory
 
-- **59 `.jsonl` files** on disk: 10 done (`D_` prefix) + 1 in progress + 48 empty stubs
+- **59 `.jsonl` files** on disk: 11 done (`D_` prefix) + 48 empty stubs
 - **2 Python scripts**: `build_sft.py`, `label_jsonl.py`
 - **README.md** (this file)
 
 ---
 
-## Token Counts (2026-04-25 snapshot, cl100k_base, prompt+completion)
+## Token Counts (2026-05-09 snapshot, cl100k_base, prompt+completion)
 
 | File | Rows | Tokens |
 |---|---:|---:|
 | `D_Conversations.jsonl` | 12,376 | 380,626 |
+| `D_material_science.jsonl` | 1,601 | 112,235 |
 | `D_physics.jsonl` | 1,600 | 111,617 |
 | `D_Trigonometry.jsonl` | 1,498 | 109,344 |
 | `D_calculus.jsonl` | 1,535 | 108,680 |
@@ -38,34 +39,27 @@ Schema: `{"prompt", "completion", "difficulty", "task_type", "response_style"}`
 | `D_AC_Circuits.jsonl` | 1,348 | 72,538 |
 | `D_electrodynamics.jsonl` | 1,318 | 72,472 |
 | `D_Thermodynamics.jsonl` | 1,069 | 70,657 |
-| **TOTAL** | **25,029** | **1,186,415** |
-
-`material_science.jsonl` (727 rows, WIP) not yet token-counted.
+| **TOTAL** | **26,630** | **1,298,650** |
 
 ---
 
 ## Completion Status
 
-### Done (10 files)
+### Done (11 files)
 
 | File | Entries | Notes |
 |---|---:|---|
-| `D_Conversations.jsonl` | 12,376 | General conversation set; 3 duplicates removed 2026-04-21; 1 row rescued from mislabeled `compilation` key |
+| `D_Conversations.jsonl` | 12,376 | General conversation set; 3 duplicates removed 2026-04-21; 1 row rescued from mislabeled `compilation` key; 108 near-dupes flagged 2026-05-09 (mostly intentional greeting variants — see `_near_dupe_flags.md`) |
+| `D_material_science.jsonl` | 1,601 | Promoted from WIP 2026-05-09; 4 near-dupes flagged for user review (3 same-prompt/different-completion pairs + 1 hyphen variant) |
 | `D_physics.jsonl` | 1,600 | All tiers; 11 near-duplicates removed 2026-04-25; 1 JSON error fixed 2026-04-21 |
 | `D_calculus.jsonl` | 1,535 | All tiers; ends in brutal optimization |
 | `D_Trigonometry.jsonl` | 1,498 | All tiers; 1 dupe removed 2026-04-21; 2 cross-tier near-dupes removed 2026-04-25 |
 | `D_elect_components.jsonl` | 1,497 | All tiers; 190 `extremely hard` → `extremely_hard` normalized; 198 `response_style` leaks reclassified 2026-04-21 |
-| `D_Advanced_Eng_Math.jsonl` | 1,474 | All tiers; 1 duplicate removed; 2 mislabeled-key rows rescued 2026-04-21; metadata not yet backfilled |
+| `D_Advanced_Eng_Math.jsonl` | 1,474 | All tiers; 1 duplicate removed; 2 mislabeled-key rows rescued 2026-04-21; metadata not yet backfilled. (Working tree contains a row-order-only diff against HEAD — content set is byte-identical) |
 | `D_AC_Circuits.jsonl` | 1,348 | All tiers; 2 duplicates removed 2026-04-21; `{prompt, completion}` only (no difficulty/task_type/response_style) |
 | `D_electrodynamics.jsonl` | 1,318 | All tiers; 168 `extremely hard` normalized; `analogy` task_type reclassified to `relation` |
 | `D_Algebra.jsonl` | 1,314 | All tiers; 200 rows metadata backfilled 2026-04-21; 1 cross-tier near-dupe removed 2026-04-25 |
 | `D_Thermodynamics.jsonl` | 1,069 | All tiers; 46 `extremely hard` normalized; 6 invalid `response_style` reclassified; 1 cross-tier near-dupe removed 2026-04-25 |
-
-### In Progress (1 file)
-
-| File | Entries | Notes |
-|---|---:|---|
-| `material_science.jsonl` | 727 | Populated since last audit; tier coverage and metadata not yet verified. Will be renamed to `D_material_science.jsonl` once complete. |
 
 ### Stubs (48 files — exist, empty)
 
@@ -158,7 +152,7 @@ Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 | 28 | Macroeconomics | `macroeconomics.jsonl` | [STUB] |
 | 29 | Manufacturing Processes | `manufacturing_processes.jsonl` | [STUB] |
 | 30 | Markdown | `markdown.jsonl` | [STUB] |
-| 31 | Material Science | `material_science.jsonl` | [WIP] 727 entries |
+| 31 | Material Science | `D_material_science.jsonl` | [DONE] 1,601 entries |
 | 32 | Microeconomics | `microeconomics.jsonl` | [STUB] |
 | 33 | PHP | `php.jsonl` | [STUB] |
 | 34 | PLC Ladder Logic | `plc_ladder.jsonl` | [STUB] |
@@ -184,7 +178,7 @@ Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 | 54 | W&H Blown Film Lines | `wh_blown_film.jsonl` | [STUB] |
 | 55 | Ampacet Masterbatch (Additives & Resin Systems) | `ampacet_masterbatch.jsonl` | [STUB] |
 
-**Syllabus tally:** 6 done, 1 in progress, 48 stubs.
+**Syllabus tally:** 7 done, 0 in progress, 48 stubs.
 
 ---
 
@@ -208,6 +202,17 @@ Status: [DONE] Complete | [WIP] In progress | [STUB] File exists, empty
 ---
 
 ## Changelog
+
+### 2026-05-09
+- Full repo audit (cl100k_base): 26,630 rows / 1,298,650 tokens across 11 done files (up from 25,029 / 1,186,415)
+- `material_science.jsonl` → `D_material_science.jsonl` (renamed; promoted WIP → Done at 1,601 rows / 112,235 tokens)
+- 0 exact duplicates found (verified after NFKC + smart-quote normalization across all 11 files)
+- 0 JSON parse errors, 0 schema issues across all 11 files
+- 112 near-duplicates flagged in `_near_dupe_flags.md`:
+  - `D_Conversations.jsonl` (108): mostly intentional casing/punctuation/emoji variants of casual greetings; 10 smart-quote prompt twins with paraphrased completions; 1 substantive (with vs without "completely")
+  - `D_material_science.jsonl` (4): **needs user review** — 3 same-prompt/different-completion pairs (likely generation accidents), 1 hyphen variant ("solid-solution" vs "solid solution")
+  - `D_Trigonometry.jsonl` (1): false positive — `sin(x)+cos(x)` vs `sin(x)·cos(x)` (different problems)
+- `D_Advanced_Eng_Math.jsonl` working-tree change vs HEAD is row-order-only (set-equal; 1,472 inserts + 1,472 deletes are pure shuffle)
 
 ### 2026-05-05
 - Renamed all 10 completed populated files with `D_` prefix to mark "Done" status (e.g., `physics.jsonl` → `D_physics.jsonl`)
